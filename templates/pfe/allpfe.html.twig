@@ -1,0 +1,23 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Entreprises{% endblock %}
+
+{% block titlePage %} Les entreprises {% endblock %}
+{%block retour %}
+    <a class="nav-link" href={{path('app_pfe')}}>
+        ajouter un pfe
+    </a>
+{%endblock%}
+{% block body %}
+    <div class="row">
+        {%for entreprise in entreprises%}
+            <div class="card" style="width: 18rem;{%if loop.index is odd%}background-color: dodgerblue;{%else%}background-color: violet{%endif%}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ entreprise.nameEntreprise }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ entreprise.ListePfe|length }} Pfe(s) </h6>
+                    <h6 class="card-subtitle mb-2 text-muted"><a href={{path('details',{id:entreprise.id})}}>details</a></h6>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
+{% endblock %}

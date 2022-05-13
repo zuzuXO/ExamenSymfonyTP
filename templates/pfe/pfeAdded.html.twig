@@ -1,0 +1,17 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}detail d'un PFE{% endblock %}
+
+{% block titlePage %} {{pfe.title }}{% endblock %}
+{%block retour %}
+        <a class="nav-link" href={{path('entreprise.view')}}>
+                retour
+        </a>
+{%endblock%}
+{% block body %}
+        <div class="container">
+        <h1> Titre du PFE : {{ pfe.title }}</h1>
+        <h2>Nom du l'étudiant : {{ pfe.NameStudent }}</h2>
+        <h2>Entreprise: {{ pfe.entreprise }}</h2>
+        </div>
+{% endblock %}

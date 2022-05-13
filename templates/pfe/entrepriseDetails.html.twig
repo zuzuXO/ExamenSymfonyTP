@@ -1,0 +1,23 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}{{entreprise.nameEntreprise}}{% endblock %}
+
+{% block titlePage %}details des PFEs: {% endblock %}
+{%block retour %}
+<a class="nav-link" href={{path('entreprise.view')}}>
+    retour
+</a>
+{%endblock%}
+{% block body %}
+    <div class="card text-black mb-3" style="max-width: 18rem;">
+        <div class="card-header">l'entreprise : {{entreprise.nameEntreprise}}</div>
+    </div>
+    {%for pfe in entreprise.getListePfe()%}
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Titre Pfe: {{ pfe.title }}</h5>
+            <p class="card-text">student : {{pfe.NameStudent}}</p>
+        </div>
+    </div>
+    {%endfor%}
+{% endblock %}
